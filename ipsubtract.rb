@@ -10,7 +10,6 @@ exclusions   = File.readlines(ARGV[1]).map(&:chomp &&:strip)
 address_array = IPAddr.new(cidr_address).to_range.to_a.map { |a| a.to_s}
 
 remainder = address_array - exclusions
-removals  = address_array
 
 file = cidr_address.gsub('.', '_').gsub('/', '_')
 puts "Valid IP addresses written to #{file}.txt"
